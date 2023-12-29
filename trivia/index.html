@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+
+                document.querySelectorAll(".checkB").forEach(function(button) {
+                    button.addEventListener("click", function(event) {
+                        var trigger = event.target;
+
+                        if (trigger.id === 'right') {
+                            trigger.style.backgroundColor = 'green';
+                            document.querySelector("#resultMC").innerHTML = 'Correct';
+                        } else {
+                            trigger.style.backgroundColor = 'red';
+                            document.querySelector("#resultMC").innerHTML = 'Incorrect';
+                        }
+                    });
+                });
+
+
+                document.querySelector(".checkI").onclick = function()
+                {
+                    var inputField = document.querySelector("#answerFR");
+                    var answer = inputField.value;
+
+                    if (answer.toLowerCase() === 'germany')
+                    {
+                        inputField.style.backgroundColor = 'green';
+                        document.querySelector("#resultFR").innerHTML = 'Correct';
+                    }
+                    else
+                    {
+                        inputField.style.backgroundColor = 'red';
+                        document.querySelector("#resultFR").innerHTML = 'Incorrect';
+                    }
+                }
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which motor does the Porsche 918 Spyder have?</h3>
+                <br>
+                <div>
+                    <button class="checkB">4.0 l V6</button>
+                    <button class="checkB" id="right">4.6 l V8</button>
+                    <button class="checkB">3.4 l V6</button>
+                    <button class="checkB">4.2 l V8</button>
+                </div>
+                <br>
+                <p id="resultMC"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Which country builds the best cars?</h3>
+                <br>
+                <div>
+                    <input type="text" id="answerFR">
+                    <button class="checkI">Check</button>
+                </div>
+                <br>
+                <p id="resultFR"></p>
+            </div>
+        </div>
+    </body>
+</html>

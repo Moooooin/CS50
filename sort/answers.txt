@@ -1,0 +1,17 @@
+sort1 uses: Bubble sort
+
+How do you know?: Because bubble sort has the smallest lower bound value (Ω(n)) and is significantly faster at sorting already sorted numbers
+ than the others. Bubble sort is also the only algorithm where big O differs from big Omega, thereby having a much bigger time difference
+ between the already sorted (best case) and random (average case) / reversed (worst case) inputs than the others
+
+
+sort2 uses: Merge sort
+
+How do you know?: It is the fastest algorithm, taking roughly the same amount of time every time,
+ and performing exceptionally well on large datasets.
+
+
+sort3 uses: Selection sort
+
+How do you know?: It is slower than Merge sort (sort2), especially when sorting the file with 50,000 numbers,
+ and it takes roughly the same amount of time every time.

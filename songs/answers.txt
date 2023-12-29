@@ -1,0 +1,6 @@
+In this scenario I would characterize the adio aura by taking the averages
+of energy, valence, and danceability of a person’s top 100 songs from the past year.
+
+Because they might listen to some songs with e.g. a very high level of energy and
+a couple with a very low one. It wouldn't cancel out the outliers from an equasion
+leaving the user with a moderately high level of energy which should be higher in this example.
