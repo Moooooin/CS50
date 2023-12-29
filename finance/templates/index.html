@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <div class="gap flex flex-column center">
+        
+        <h1>Portfolio</h1>
+        <h2> {{ stocks_total | usd }} </h2>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Shares</th>
+                    <th>Total Value</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                        <td> {{ stock.symbol }} </td>
+                        <td> {{ stock.price | usd }} </td>
+                        <td> {{ stock.shares }} </td>
+                        <td> {{ stock.total | usd }} </td>
+                        <td style="color: {{ stock.color }}"> {{ stock.profit | usd }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <hr>
+        <h1>Total</h1>
+        <h2> {{ total | usd }} </h2>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Cash</th>
+                    <th>Stocks</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> {{ cash | usd         }} </td>
+                    <td> {{ stocks_total | usd }} </td>
+                    <td> {{ total | usd        }} </td>
+                </tr>
+        </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

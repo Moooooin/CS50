@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <div class="gap flex flex-column center">
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ price | usd }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

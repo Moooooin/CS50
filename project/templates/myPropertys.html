@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Propertys
+{% endblock %}
+
+{% block main %}
+
+<div class="list">
+
+    {% for property in propertys|reverse %}
+
+    <button class="noButton" data-toggle="modal" data-target="#modal{{ property.id }}">
+    <div class="property">
+        <img src="/static/propertys/{{ property.id }}.jpg" alt="{{ property.typ }}" class="propertyImage">
+        <br>
+        <div class="columnC Pinfo">
+            <h6 class="nav-link text-white pinfoT"><img src="/static/icons/typ.png" class="iconXXS">{{ property.typ }}</h6>
+
+            <h6 class="nav-link text-white pinfoT"><img src="/static/icons/location.png" class="iconXXS">{{ property.city }}, {{ property.country }}</h6>
+
+            <h6 class="nav-link text-white pinfoT"><img src="/static/icons/size.png" class="iconXXS">{{ property.property_size }} {{ property.unit }}²</h6>
+
+            <h6 class="nav-link text-white pinfoT"><img src="/static/icons/preis.png" class="iconXXS">
+                {{ property.price }} {{ property.currency }} {% if property.rent %} /month {% endif %}
+            </h6>
+        </div>
+    </div>
+    </button>
+
+    {% endfor %}
+
+    </div>
+
+    {% for property in propertys %}
+
+    <div class="modal fade bd-example-modal-lg" id="modal{{ property.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modalHeader">
+                        <img src="/static/icons/user.png" class="iconXS nav-icon">
+                        <h5 class="modal-title" id="filterTitle">{{ property.username }}</h5>
+                    </div>
+                    <button type="button" class="btn-close clearP" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body modal-body2 columnC jcstart">
+
+                    <img src="/static/propertys/{{ property.id }}.jpg" alt="{{ property.typ }}" class="pmodalImage">
+                    <br>
+                    <div class="list saround">
+
+                        <div class="columnC Pinfo">
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/typT.png" class="iconXS">{{ property.typ }}</h5>
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/zimmer.png" class="iconXS">{{ property.rooms }}</h5>
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/sizeT.png" class="iconXS">{{ property.property_size }} {{ property.unit }}² (property)</h5>
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/sizeT.png" class="iconXS">{{ property.plot_size }} {{ property.unit }}² (plot)</h5>
+                        </div>
+
+                        <div class="columnC Pinfo">
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/land.png" class="iconXS">{{ property.country }}</h5>
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/land.png" class="iconXS">{{ property.city }}</h5>
+
+                            <h6 class="nav-link text-white pinfoT textXS wrap"><img src="/static/icons/address.png" class="iconXS">{{ property.address }}</h6>
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/preisT.png" class="iconXS">
+                                {{ property.price }} {{ property.currency }} {% if property.rent %} /month {% endif %}
+                            </h5>
+                        </div>
+
+                        <div class="columnC Pinfo">
+
+                            <h5 class="nav-link text-white pinfoT"><img src="/static/icons/views.png" class="iconXS">{{ property.views }}</h5>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <form action="/deleteP" method="post" class="nomargin nopadding">
+                        <input type="text" class="invisible" name="id" value="{{ property.id }}">
+                        <button class="btn btn-danger nomargin">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

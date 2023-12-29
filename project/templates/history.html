@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <form action="/deleteH" method="post">
+        <button type="submit" class="btn btn-lg btn-warning">Clear History</button>
+    </form>
+
+
+    <div class="list">
+
+    {% for property in history|reverse %}
+
+        <form action="/view" method="post">
+            <input type="text" class="invisible" value="{{ property.id }}" name="id">
+            <button class="noButton" type="submit">
+                <div class="property">
+                    <img src="/static/propertys/{{ property.id }}.jpg" alt="{{ property.typ }}" class="propertyImage">
+                    <br>
+                    <div class="columnC Pinfo">
+                        <h6 class="nav-link text-white pinfoT"><img src="/static/icons/typ.png" class="iconXXS">{{ property.typ }}</h6>
+
+                        <h6 class="nav-link text-white pinfoT"><img src="/static/icons/location.png" class="iconXXS">{{ property.city }}, {{ property.country }}</h6>
+
+                        <h6 class="nav-link text-white pinfoT"><img src="/static/icons/size.png" class="iconXXS">{{ property.property_size }} {{ property.unit }}²</h6>
+
+                        <h6 class="nav-link text-white pinfoT"><img src="/static/icons/preis.png" class="iconXXS">
+                            {{ property.price }} {{ property.currency }} {% if property.rent %} /month {% endif %}
+                        </h6>
+                    </div>
+                </div>
+            </button>
+        </form>
+
+    {% endfor %}
+
+    </div>
+
+{% endblock %}

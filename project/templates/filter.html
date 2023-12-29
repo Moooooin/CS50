@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Filter
+{% endblock %}
+
+{% block main %}
+
+    <div class="list">
+        <form action="/filter" method="post" class="filterForm">
+
+            <input type="text" class="form-control form-control-lg" name="country" placeholder="Any Country">
+
+            <select class="form-select-lg bg-light text-white noborder" name="category">
+                <option value="Any" selected>Any Category</option>
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Duplex">Duplex</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Forced Sale">Forced Sale</option>
+                <option value="Garage / Parking Plot">Garage / Parking Plot</option>
+                <option value="Nursing Home">Nursing Home</option>
+                <option value="Hotel">Hotel / Gastronomy</option>
+                <option value="Office">Office</option>
+                <option value="Construction Project">Construction Project</option>
+                <option value="Plot">Plot</option>
+                <option value="Storeroom">Storeroom</option>
+                <option value="Condominium">Condominium</option>
+                <option value="Production Shed">Production Shed</option>
+            </select>
+
+            <input type="text" class="form-control form-control-lg" name="minprice" placeholder="Min Price">
+
+            <input type="text" class="form-control form-control-lg" name="maxprice" placeholder="Max Price">
+
+            <select class="form-select-lg bg-light text-white noborder" name="currency">
+                <option value="Any">Any Currency</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CAD">CAD</option>
+                <option value="RUB">RUB</option>
+                <option value="JPY">JPY</option>
+                <option value="AUD">AUD</option>
+                <option value="GBP">GBP</option>
+                <option value="CHF">CHF</option>
+                <option value="CNY">CNY</option>
+                <option value="INR">INR</option>
+                <option value="BRY">BRY</option>
+            </select>
+
+            <select class="form-select-lg bg-light text-white noborder" name="payment">
+                <option value="Any">Any Payment</option>
+                <option value="r">Rent /month</option>
+                <option value="s">Sale</option>
+            </select>
+
+            <input type="text" class="form-control form-control-lg" name="rooms" placeholder="Min Rooms">
+
+            <input type="text" class="form-control form-control-lg" name="minsize" placeholder="Min Property Size">
+
+            <select class="form-select-lg bg-light text-white noborder" name="unit">
+                <option value="Any">Any measurement unit</option>
+                <option value="m">m²</option>
+                <option value="f">f²</option>
+            </select>
+
+
+            <br>
+
+            <button type="submit" class="btn btn-primary btn-lg">Apply</button>
+
+        </form>
+    </div>
+
+{% endblock %}

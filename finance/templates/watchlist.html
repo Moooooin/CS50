@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Watchlist
+{% endblock %}
+
+{% block main %}
+
+    <div class="gap flex flex-column center">
+        <h1>Watchlist</h1>
+
+        <form action="/watchlist" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Stock Symbol" type="text">
+            </div>
+            <button class="btn btn-dark btn-blue btn-lg" type="submit" name="action" value="add">Add</button>
+        </form>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- cs50 duck helped with |reverse -->
+                {% for stock in liste|reverse %}
+                    <tr>
+                        <form action="/watchlist" method="post">
+                            <td> {{ stock.symbol }} </td>
+                            <td> {{ stock.price | usd }} </td>
+                            <input type="hidden" name="symbol" value="{{ stock.symbol }}">
+                            <td> <button class="btn btn-danger btn-sm" type="submit" name="action" value="delete">Delete</button> </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- downloaded bootswatch theme -->
+        <link href="/static/bootstrap.css" rel="stylesheet">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/favicon.ico" rel="icon">
+
+        <!-- Bootstrap JS Library -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <title>Dici: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+
+        <nav class="bg-dark navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a href="/" class="logo"><img src="/static/dici-logo.png" class="logo"></a>
+
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    {% if session["user_id"] %}
+
+                        <ul class="navbar-nav me-auto mt-2">
+
+                            <li class="nav-item"><a class="nav-link" href="/filter"><img src="/static/icons/filter.png" alt="filter" class="iconXS nav-icon">Filter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/add"><img src="/static/icons/add.png" alt="add" class="iconXS nav-icon">Add</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/myPropertys"><img src="/static/icons/myPropertys.png" alt="house" class="iconXS nav-icon">My Propertys</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/history"><img src="/static/icons/verlauf.png" alt="history" class="iconXS nav-icon">History</a></li>
+                            <li class="nav-item"><button class="nav-link" data-toggle="modal" data-target="#account"><img src="/static/icons/user.png" alt="user" class="iconXS nav-icon">Account</button></li>
+
+                        </ul>
+
+                    {% else %}
+
+                        <ul class="navbar-nav me-auto mt-2">
+
+                            <li class="nav-item"><button class="nav-link" data-toggle="modal" data-target="#login">Log in</button></li>
+                            <li class="nav-item"><button class="nav-link" data-toggle="modal" data-target="#register">Register</button></li>
+
+                        </ul>
+
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary mb-0 text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container-fluid py-5 text-center">
+            {% block main %}{% endblock %}
+        </main>
+
+        <!-- Account -->
+        <div class="modal fade bd-example-modal-lg" id="account" tabindex="-1" role="dialog" aria-labelledby="account" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modalHeader">
+                            <img src="/static/icons/user.png" class="iconXS nav-icon">
+                            <h5 class="modal-title" id="filterTitle">Account</h5>
+                            {% if session["user_id"] %}
+                            <h5 class="modal-title text-body nophone">{{ user[0]["username"] }}</h5>
+                            {% endif %}
+                        </div>
+                        <button type="button" class="btn-close clearP" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body columnC stretch">
+                        <buton class="btn btn-lg btn-light clearP"  data-toggle="modal" data-target="#changeP" data-dismiss="modal">Change Password</buton>
+                        <buton class="btn btn-lg btn-light clearP"  data-toggle="modal" data-target="#changeU" data-dismiss="modal">Change Username</buton>
+                        <buton class="btn btn-lg btn-light clearP"  data-toggle="modal" data-target="#deleteA" data-dismiss="modal">Delete Account</buton>
+                        <a class="btn btn-lg btn-light clearP" href="/logout">Log out</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary clearP" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="modal fade" id="changeP" tabindex="-1" role="dialog" aria-labelledby="changeP" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modalHeader"><h5 class="modal-title" id="filterTitle">Change Password</h5></div>
+                        <button type="button" class="btn-close clearP"  data-toggle="modal" data-target="#account" data-dismiss="modal">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <form action="/changeP" method="post" class="xs">
+                        <div class="modal-body modal-body1">
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="password" name="password" placeholder="Old Password" type="password">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="newpassword" name="newpassword" placeholder="New Password" type="password">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="newpasswordc" name="newpasswordc" placeholder="Confirmation" type="password">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-lg btn-primary">Change Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Username -->
+        <div class="modal fade" id="changeU" tabindex="-1" role="dialog" aria-labelledby="changeU" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modalHeader"><h5 class="modal-title" id="filterTitle">Change Username</h5></div>
+                        <button type="button" class="btn-close clearP"  data-toggle="modal" data-target="#account" data-dismiss="modal">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <form action="/changeU" method="post" class="xs">
+                        <div class="modal-body modal-body1">
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="newusername" name="newusername" placeholder="New Username" type="text">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="password" name="password" placeholder="Password" type="password">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-lg btn-primary">Change Username</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Account -->
+        <div class="modal fade" id="deleteA" tabindex="-1" role="dialog" aria-labelledby="deleteA" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content border-danger">
+                    <div class="modal-header">
+                        <div class="modalHeader"><h5 class="modal-title" id="filterTitle">Delete Account</h5></div>
+                        <button type="button" class="btn-close clearP"  data-toggle="modal" data-target="#account" data-dismiss="modal">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <form action="/deleteA" method="post" class="xs">
+                        <div class="modal-body modal-body1">
+                            <p>Once your account is deleted it can never be restored</p>
+                            <br>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="password" name="password" placeholder="Password" type="password">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-lg btn-danger">Delete Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log in -->
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modalHeader"><h5 class="modal-title" id="filterTitle">Log in</h5></div>
+                        <button type="button" class="btn-close clearP" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-body1">
+                        <h4 class="card-title">Welcome back</h4>
+                        <br>
+                        <p>Don't have an account? </p>
+                        <button class="nav-link link clearP" data-toggle="modal" data-target="#register" data-dismiss="modal">Register</button>
+                        <br>
+                        <form action="/login" method="post" class="xs">
+                            <div class="mb-3">
+                                <input autocomplete="off" autofocus class="form-control mx-auto w-auto clear" id="username" name="username" placeholder="Username" type="text">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="password" name="password" placeholder="Password" type="password">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn-lg btn btn-primary">Log in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register -->
+        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modalHeader"><h5 class="modal-title" id="filterTitle">Register</h5></div>
+                        <button type="button" class="btn-close clearP" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-body1">
+                        <h4 class="card-title">Welcome to Dici</h4>
+                        <br>
+                        <p>Already have an account?</p>
+                        <button class="nav-link link clearP" data-toggle="modal" data-target="#login" data-dismiss="modal">Log in</button>
+                        <br>
+                        <form action="/register" method="post" class="xs">
+                            <div class="mb-3">
+                                <input autocomplete="off" autofocus class="form-control mx-auto w-auto clear" id="username" name="username" placeholder="Username" type="text">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="password" name="password" placeholder="Password" type="password">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto clear" id="confirmation" name="confirmation" placeholder="Confirm Password" type="password">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn-lg btn btn-primary">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mb-5 small text-center text-muted">
+            Icons by <a href="https://icons8.com/">Icons8</a>
+        </footer>
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function() {
+                var rows = document.querySelectorAll(".clickable");
+                rows.forEach(function(row) {
+                    row.addEventListener("click", function() {
+                        var href = this.getAttribute("data-href");
+                        if (href) {
+                        window.location = href;
+                        }
+                    });
+                });
+
+                var clearPs = document.querySelectorAll(".clearP");
+                clearPs.forEach(function(clearP) {
+                    clearP.addEventListener("click", function() {
+                        var clears = document.querySelectorAll(".clear");
+                        clears.forEach(function(clear) {
+                            clear.value = '';
+                        });
+                    });
+                });
+            });
+
+        </script>
+
+    </body>
+
+</html>

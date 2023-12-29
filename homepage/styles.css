@@ -1,0 +1,514 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #141414;
+    padding: 2vw;
+    width: 100vw;
+    min-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#homeBody {
+    display: flex;
+    flex-direction: row;
+}
+
+#hobbysBody,
+#profileBody {
+    display: flex;
+    flex-direction: column;
+}
+
+p, h1, h2, h3, h4 {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 4vw;
+}
+
+h2 {
+    white-space: nowrap;
+    font-size: max(2.5vw, 28px);
+}
+
+h3 {
+    font-size: max(1.75vw, 24px);
+}
+
+h4 {
+    white-space: nowrap;
+    font-size: 20px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.C {
+    cursor: pointer;
+}
+
+.C:hover {
+    text-decoration: underline white solid 1.5px;
+}
+
+.flex {
+    display: flex;
+}
+
+.margin {
+    margin: 48px;
+}
+
+.marginS {
+    margin: 24px;
+}
+
+.dblau {
+    background-color: #21272D;
+}
+
+.mblau {
+    background-color: #293743;
+}
+
+.gblau {
+    background-color: #33445E;
+}
+
+.icon {
+    min-width: 32px;
+    min-height: 32px;
+    width: 2vw;
+    height: 2vw;
+}
+
+.scroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.circle1 {
+    padding: 40px 40px 0 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.fixed {
+    overflow: hidden;
+}
+
+.bubble1 {
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.links {
+    width: max-content;
+    align-items: center;
+}
+
+.link {
+    align-items: center;
+    margin: 0.25vw;
+    display: flex;
+    flex-direction: row;
+    height: 54px;
+    flex-wrap: nowrap;
+    transition: 0.1s;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.link:hover {
+    text-decoration: underline white solid 2px;
+}
+
+.pageHeading {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 36px;
+}
+
+.back {
+    width: max(4vw, 48px);
+    height: max(4vw, 48px);
+    margin-right: 48px;
+    transition: 0.2s;
+}
+
+.back:hover {
+    padding: 4px;
+}
+
+.radius10 {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+/* Custom style for bootstrap Accordion */
+.accordion {
+    --bs-accordion-bg: rgba(255, 255, 255, 0.05);
+    --bs-accordion-color: white;
+    --bs-accordion-active-bg: rgba(255, 255, 255, 0.08);
+    --bs-accordion-btn-focus-border-color: white;
+    --bs-accordion-btn-color: white;
+    --bs-accordion-active-color: white;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-border-color: rgba(255, 255, 255, 0.12);
+    --bs-accordion-border-width: 2px;
+}
+
+.accordion-button::after {
+    filter: invert(1) grayscale(1);
+}
+
+.footerText {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    margin: 16px 16px 0 16px;
+    line-height: normal;
+    align-self: flex-end;
+}
+
+.footerText2 {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    margin: 16px 16px 0 16px;
+    line-height: normal;
+}
+
+.imgGrid {
+    display: flex;
+    width: 40vw;
+    height: 40vw;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.column1 {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 100%;
+}
+
+
+.column2 {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+}
+
+.img1,
+.img4 {
+    width: 100%;
+    height: 55%;
+}
+
+.img2,
+.img3 {
+    width: 100%;
+    height: 40%;
+}
+
+.content1 {
+    margin: 3.5vw;
+}
+
+.content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 36px;
+}
+
+.content3 {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap: 16px;
+}
+
+.imgfooter {
+    margin: 2vw 2vw 0 2vw;
+}
+
+.hIcon {
+    width: max(3.5vw, 40px);
+    height: max(3.5vw, 40px);
+}
+
+.hc1 {
+    max-width: 60vw;
+    min-height: 40vw;
+    justify-content: space-between;
+}
+
+.hc2 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 32px;
+}
+
+.hcTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.hr1 {
+    gap: 2.5%;
+    align-content: center;
+    align-items: flex-end;
+}
+
+.hr2 {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.mobile {
+    display: none;
+}
+
+.imgF {
+    width: 25vw;
+    margin: 16px;
+}
+
+.carImage {
+    width: 32vw;
+    height: 16vw;
+}
+
+.carsC {
+    align-items: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+#piano2 {
+    width: 30vw;
+}
+
+#generalI {
+    gap: 8px;
+}
+
+#homeBubble1 {
+    top: 40vh;
+    right: 30vw;
+    width: 100vw;
+    height: 90vh;
+    z-index: -2;
+}
+
+#homeBubble2 {
+    top: 15vh;
+    right: 15vw;
+    width: 55vw;
+    height: 70vh;
+}
+
+#hobbysBubble1 {
+    top: 10vh;
+    left: 30vw;
+    width: 70vw;
+    height: 90vh;
+    position: absolute;
+}
+
+#hobbysBubble2 {
+    top: 40vh;
+    right: 7vw;
+    width: 110vw;
+    height: 200vh;
+    z-index: -2;
+}
+
+#profileBubble1 {
+    top: 8vh;
+    right: -10vw;
+    width: 60vw;
+    height: 110vh;
+    position: absolute;
+}
+
+#profileBubble2 {
+    top: 24vh;
+    left: -18vw;
+    width: 100vw;
+    height: 200vh;
+    z-index: -2;
+}
+
+#carBubble {
+    top: -50vh;
+    left: -50vw;
+    width: 140vw;
+    height: 110vh;
+}
+
+#bild2 {
+    display: none;
+}
+
+@media screen and (max-width: 1440px) {
+    .pageHeading {
+        margin-bottom: 0px;
+    }
+
+    .content2 {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: max(7vw, 32px);
+    }
+
+    h2 {
+        font-size: max(5vw, 26px);
+    }
+
+    h3 {
+        font-size: max(4vw, 24px);
+    }
+
+    h4 {
+        font-size: 16px;
+        white-space: wrap;
+    }
+
+    .nMobile {
+        display: none !important;
+    }
+
+    .fixed {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    #homeBody {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    .imgGrid {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .footerText {
+        align-self: flex-start;
+        margin: 16px;
+    }
+
+    .back {
+        margin-right: 24px;
+    }
+
+    .pageHeading {
+        margin: 28px;
+    }
+
+    .hr1 {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hr2 {
+        justify-content: flex-start;
+    }
+
+    .hc1 {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .imgs {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imgF {
+        width: 40vw;
+    }
+
+    .content3,
+    .fc1 {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column-reverse;
+        align-self: center;
+    }
+
+    .iconSM {
+        width: 16px;
+        height: 16px;
+    }
+
+    .generalI {
+        max-width: 90vw;
+    }
+
+    #PUTitles {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .C:hover,
+    .link:hover {
+        text-decoration: none;
+    }
+
+    .accordion {
+        max-width: 80vw;
+        width: 80vw;
+        overflow: auto;
+        align-self: flex-start;
+    }
+
+    .carImage {
+        width: 90vw;
+        height: 45vw;
+    }
+}

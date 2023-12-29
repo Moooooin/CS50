@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Property
+{% endblock %}
+
+{% block main %}
+
+    <form action="/add" method="post" enctype="multipart/form-data" class="xs">
+
+        <div class="row gapM max95 centered">
+
+            <div class="columnW">
+                <div class="columnW" id="images">
+                    <h2>Image</h2>
+                    <input id="formFileMultiple" class="form-control mx-auto w-M noborder clear" type="file" name="image">
+                </div>
+
+                <br>
+
+                <div class="columnW m">
+                    <h2>Category</h2>
+                    <select class="form-select-lg bg-light text-white noborder" name="category">
+                        <option value="No Category selected" selected>Select a category</option>
+                        <option value="House">House</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Duplex">Duplex</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Forced Sale">Forced Sale</option>
+                        <option value="Garage / Parking Plot">Garage / Parking Plot</option>
+                        <option value="Nursing Home">Nursing Home</option>
+                        <option value="Hotel">Hotel / Gastronomy</option>
+                        <option value="Office">Office</option>
+                        <option value="Construction Project">Construction Project</option>
+                        <option value="Plot">Plot</option>
+                        <option value="Storeroom">Storeroom</option>
+                        <option value="Condominium">Condominium</option>
+                        <option value="Production Shed">Production Shed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="columnW" id="stats">
+                <h2>General</h2>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="propertySize" placeholder="Property Size">
+                    <span class="input-group-text"><select class="form-select-sm bg-light text-white noborder" name="measurement1">
+                        <option value="m">m²</option>
+                        <option value="f">f²</option>
+                    </select></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="plotSize" placeholder="Plot Size">
+                    <span class="input-group-text"><select class="form-select-sm bg-light text-white noborder" name="measurement2">
+                        <option value="m">m²</option>
+                        <option value="f">f²</option>
+                    </select></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="rooms" placeholder="Rooms">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="price" placeholder="Price">
+                    <span class="input-group-text"><select class="form-select-sm bg-light text-white noborder" name="currency">
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="RUB">RUB</option>
+                        <option value="JPY">JPY</option>
+                        <option value="AUD">AUD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="INR">INR</option>
+                        <option value="BRY">BRY</option>
+                    </select></span>
+                    <span class="input-group-text"><select class="form-select-sm bg-light text-white noborder" name="payment">
+                        <option value="r">Rent /month</option>
+                        <option value="s">Sale</option>
+                    </select></span>
+                </div>
+            </div>
+
+            <div class="columnW" id="location">
+                <h2>Location</h2>
+                <input class="form-control mx-auto w-M noborder clear" type="text" name="country" placeholder="Country">
+                <input class="form-control mx-auto w-M noborder clear" type="text" name="city" placeholder="City">
+                <input class="form-control mx-auto w-M noborder clear" type="text" name="address" placeholder="Address">
+            </div>
+
+        </div>
+        <hr>
+
+        <button type="submit" class="btn-lg btn btn-primary">Submit</button>
+
+    </form>
+
+{% endblock %}

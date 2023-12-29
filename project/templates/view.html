@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Propertys
+{% endblock %}
+
+{% block main %}
+
+    <a href="/" class="nomargin back"><img src="/static/icons/back.png" class="backicon"></a>
+
+    <br><br>
+
+    <div class="list alstart marginS">
+
+        <img src="/static/propertys/{{ property.id }}.jpg" alt="{{ property.typ }}" class="pmodalImage">
+        <br>
+
+        <div class="list saround marginS">
+
+            <div class="columnC Pinfo">
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/typT.png" class="iconXS">{{ property.typ }}</h5>
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/zimmer.png" class="iconXS">{{ property.rooms }}</h5>
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/sizeT.png" class="iconXS">{{ property.property_size }} {{ property.unit }}² (property)</h5>
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/sizeT.png" class="iconXS">{{ property.plot_size }} {{ property.unit }}² (plot)</h5>
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/user.png" class="iconXS">{{ property.username }}</h5>
+            </div>
+
+            <div class="columnC Pinfo">
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/land.png" class="iconXS">{{ property.country }}</h5>
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/land.png" class="iconXS">{{ property.city }}</h5>
+
+                <h6 class="nav-link text-white pinfoT textXS wrap"><img src="/static/icons/address.png" class="iconXS">{{ property.address }}</h6>
+
+                <h5 class="nav-link text-white pinfoT"><img src="/static/icons/preisT.png" class="iconXS">
+                    {{ property.price }} {{ property.currency }} {% if property.rent %} /month {% endif %}
+                </h5>
+
+                <button class="btn btn-primary mobileBTN">Contact</button>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
