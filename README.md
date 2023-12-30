@@ -55,10 +55,10 @@ Lists, Stacks, Queues, Hash-Tables, etc.
 ### Week 6: Python
 Introducing Python, OOP, and its differences to c
 - [World Cup (Lab Projects)](./world-cup)
-- [Mario (easier version)](./sentimental-hello)
-- [Mario (harder version)](./sentimental-credit)
-- [Credit](./sentimental-mario-more)
-- [Cash](./sentimental-readability)
+- [Hello](./sentimental-hello)
+- [Mario](./sentimental-mario-more)
+- [Credit](./sentimental-credit)
+- [Readability](./sentimental-readability)
 - [DNA](./dna)
 ##
 
