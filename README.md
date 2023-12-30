@@ -88,7 +88,7 @@ Backends with Python, Flask, and Ajax
 
 
 ## Acknowledgments
-Thanks to Harvard University and CS50's staff for providing this excellent course material and learning experience! I had an awesome time taking this course and can't thank you enough for this!
+Thanks to Harvard University and CS50's staff for providing this excellent course material and learning experience! This was an awesome time for me and I can't thank you enough for this!
 
 Feel free to explore each project and take inspiration, but please do not copy anything!
 
