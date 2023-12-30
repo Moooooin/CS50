@@ -83,7 +83,7 @@ Backends with Python, Flask, and Ajax
 
 ### Final Project
 - Using everything I learned to put it all together in one last personal project
-- [Final Project : Dici, a real estate broker](./project)
+- [Final Project : Dici, a real estate website](./project)
 ##
 
 
