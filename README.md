@@ -6,6 +6,7 @@ Welcome to my CS50 projects repository! This repository contains a collection of
 ## About CS50
 
 [CS50](https://cs50.harvard.edu/) is Harvard University's introduction to computer science. It covers a broad range of topics including algorithms, software development, web development, and more. It's free for everyone and I highly recommend taking it.
+Feel free to explore my projects and take inspiration, but please do not copy anything!
 
 ## Projects
 
@@ -89,6 +90,3 @@ Backends with Python, Flask, and Ajax
 
 ## Acknowledgments
 Thanks to Harvard University and CS50's staff for providing this excellent course material and learning experience! This was an awesome time for me and I can't thank you enough for this!
-
-Feel free to explore each project and take inspiration, but please do not copy anything!
-
