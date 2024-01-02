@@ -1,7 +1,5 @@
 # Dici
 
-#### Video Demo:  https://youtu.be/I_V59nP1QG4
-
 ## Description:
 
 ### Index :
