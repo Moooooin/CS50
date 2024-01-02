@@ -33,7 +33,7 @@ A modal where you are able to edit your account information. Changing your usern
 #
 
 ### History :
-#### A list of the propertys you clicked on. Clear your history by clicking the button on top of the list. The history is seperated from your views. Propertys can be deleted from your history but not from your views. And you also can have your own propertys in your history but not in your views.
+A list of the propertys you clicked on. Clear your history by clicking the button on top of the list. The history is seperated from your views. Propertys can be deleted from your history but not from your views. And you also can have your own propertys in your history but not in your views.
 ##### Login is required.
 #
 
