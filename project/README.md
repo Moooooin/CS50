@@ -1,7 +1,5 @@
 # Dici
 
-## Description:
-
 ### Index :
 #### Every property in the "propertys" table of the database gets listed alongside with some additional information like the price, size, category and location.
 #
