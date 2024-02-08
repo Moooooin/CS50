@@ -5,7 +5,7 @@ Welcome to my CS50 projects repository! This repository contains a collection of
 
 ## About CS50
 
-[CS50](https://cs50.harvard.edu/) is Harvard University's introduction to computer science. It covers a broad range of topics including algorithms, software development, web development, and more. It's free for everyone and I highly recommend taking it.
+[CS50]([https://cs50.harvard.edu/](https://pll.harvard.edu/course/cs50-introduction-computer-science)) is Harvard University's introduction to computer science. It covers a broad range of topics including algorithms, software development, web development, and more. It's free for everyone and I highly recommend taking it.
 <br><br> Feel free to explore my projects and take inspiration, but please do not copy anything!
 
 ## Projects
